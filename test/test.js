@@ -24,6 +24,7 @@ const generate = async () => {
         plugins: [
             metadataReport({
                 name: 'metadata report with esbuild plugin',
+                // json: true,
                 outputFile: './docs/plugin.html'
             })
         ]

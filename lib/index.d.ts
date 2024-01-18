@@ -5,6 +5,7 @@ declare namespace metadataReport {
     export interface MetadataReportOptions {
         name?: string;
         outputFile?: string;
+        json?: boolean;
         metadata?: Metafile;
     }
 
