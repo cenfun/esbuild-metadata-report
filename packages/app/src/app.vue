@@ -30,7 +30,7 @@ const {
 // ===============================================================================================
 // do not use reactive for grid data
 const state = shallowReactive({
-    title: 'ESBuild Metadata Report',
+    title: 'Metadata Report',
 
     dataType: 'flat',
 
@@ -432,23 +432,18 @@ const generateDepTree = (depTree, inputs, imports, list) => {
             return;
         }
 
-        let title = '';
-        let contains = '';
-        if (item.kind.startsWith('import')) {
-            title = 'Imported file';
-            contains = `import "${item.original}"`;
-        } else if (item.kind.startsWith('require')) {
-            title = 'Required file';
-            contains = `require("${item.original}")`;
-        }
-
-        const newList = [... list, {
+        const info = {
             path: item.path,
-            title,
-            contains
-        }];
+            title: '',
+            contains: `${item.kind} ${JSON.stringify(item.original)}`
+        };
 
-        depTree[item.path] = newList;
+        const newList = [... list, info];
+
+        // already added
+        if (!depTree[item.path]) {
+            depTree[item.path] = newList;
+        }
 
         if (input.imports) {
             generateDepTree(depTree, inputs, input.imports, newList);

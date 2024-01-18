@@ -104,21 +104,22 @@ watch(() => state.flyoverData, (v) => {
 }
 
 .emr-contains {
-    margin-top: -5px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .emr-contains-icon {
-    padding-left: 20px;
+    padding-left: 30px;
     background-image: url("../images/arrow-right-bottom.svg");
     background-repeat: no-repeat;
-    background-position: left center;
+    background-position: 10px center;
     background-size: 16px 16px;
 }
 
 .emr-dep-item {
     margin-top: 10px;
     padding: 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 </style>

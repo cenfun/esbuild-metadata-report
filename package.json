@@ -1,0 +1,42 @@
+{
+    "name": "esbuild-metadata-report",
+    "version": "1.0.0",
+    "description": "esbuild metadata report",
+    "main": "./lib/index.js",
+    "exports": {
+        ".": {
+            "types": "./lib/index.d.ts",
+            "import": "./lib/index.mjs",
+            "require": "./lib/index.js",
+            "default": "./lib/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "types": "./lib/index.d.ts",
+    "scripts": {
+        "dev": "sf d",
+        "build": "sf lint && sf b -p",
+        "test": "node ./test/test.js",
+        "patch": "npm run build && sf publish patch -r"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "files": [
+        "lib"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "eight-colors": "~1.2.1",
+        "lz-utils": "~2.0.2"
+    },
+    "devDependencies": {
+        "esbuild": "^0.19.11",
+        "eslint": "^8.56.0",
+        "eslint-config-plus": "^1.0.6",
+        "eslint-plugin-html": "^7.1.0",
+        "eslint-plugin-vue": "^9.20.1",
+        "stylelint": "^15.11.0",
+        "stylelint-config-plus": "^1.0.4"
+    }
+}
