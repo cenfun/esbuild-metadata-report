@@ -1,6 +1,6 @@
 {
     "name": "esbuild-metadata-report",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "esbuild metadata report",
     "main": "./lib/index.js",
     "exports": {
