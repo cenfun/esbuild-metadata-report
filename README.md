@@ -1,5 +1,5 @@
 # esbuild-metadata-report
-> Metadata Report for esbuild
+> Metadata Report for [esbuild](https://github.com/evanw/esbuild)
 
 [![](https://img.shields.io/npm/v/esbuild-metadata-report)](https://www.npmjs.com/package/esbuild-metadata-report)
 [![](https://badgen.net/npm/dw/esbuild-metadata-report)](https://www.npmjs.com/package/esbuild-metadata-report)
