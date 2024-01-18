@@ -354,6 +354,10 @@ const getSubImports = (flatRows, inputs, p) => {
 
     const subs = subImports.map((item) => {
         const row = flatRows.find((it) => it.path === item.path);
+        if (!row) {
+            // console.log(item);
+            return;
+        }
         if (row.tg_added) {
             // stop loop
             return;
@@ -391,6 +395,8 @@ const getSubImports = (flatRows, inputs, p) => {
 const getTreeRows = (outputItem, inputs, depTree) => {
     const flatRows = getFlatRows(outputItem, inputs, depTree);
     const entryPoint = outputItem.entryPoint;
+
+    // console.log(flatRows);
 
     const entryRow = flatRows.find((it) => it.path === entryPoint);
     entryRow.tg_added = true;

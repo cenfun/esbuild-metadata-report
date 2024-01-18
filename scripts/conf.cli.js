@@ -11,11 +11,7 @@ const beforeApp = (item, Util) => {
 
     const jsonDataPath = path.resolve(__dirname, '../test/metadata.json');
     const metadataStr = fs.readFileSync(jsonDataPath).toString('utf-8');
-
-    const reportData = {
-        metadata: JSON.parse(metadataStr)
-    };
-    const reportDataCompressed = deflateSync(JSON.stringify(reportData));
+    const reportDataCompressed = deflateSync(metadataStr);
     const reportDataStr = `window.reportData = '${reportDataCompressed}';`;
 
 
