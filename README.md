@@ -2,6 +2,7 @@
 > Metadata Report for esbuild
 
 ## Preview
+- [https://cenfun.github.io/esbuild-metadata-report/](https://cenfun.github.io/esbuild-metadata-report/)
 
 
 ## Install
