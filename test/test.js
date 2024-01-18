@@ -7,7 +7,7 @@ const generate = async () => {
 
     // as function
     const htmlPath = metadataReport({
-        metadata,
+        ... metadata,
         outputFile: 'docs/index.html'
     });
 
