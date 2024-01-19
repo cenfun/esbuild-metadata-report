@@ -1,6 +1,6 @@
 {
     "name": "esbuild-metadata-report-app",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "private": true,
     "main": "dist/esbuild-metadata-report-app.js",
     "files": [
