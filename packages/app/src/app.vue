@@ -314,11 +314,14 @@ const getGroupRows = (outputItem, inputs, depTree) => {
 
 const getFlatRows = (outputItem, inputs, depTree) => {
     const flatRows = [];
+
+    const entryPoint = outputItem.entryPoint;
     Object.keys(outputItem.inputs).forEach((k) => {
         const item = outputItem.inputs[k];
         const inputItem = inputs[k] || {};
         const list = depTree[k] || [];
-        flatRows.push({
+
+        const row = {
             name: k,
             path: k,
             percent: Util.PNF(item.bytesInOutput, outputItem.bytes),
@@ -326,7 +329,14 @@ const getFlatRows = (outputItem, inputs, depTree) => {
             iBytes: inputItem.bytes,
             iFormat: inputItem.format,
             list
-        });
+        };
+
+        if (k === entryPoint) {
+            row.nameClassMap = 'emr-icon-entry';
+        }
+
+        flatRows.push(row);
+
     });
 
     return flatRows;
@@ -496,6 +506,8 @@ const getGridRows = () => {
 
         return {
             name: k,
+            path: k,
+            nameClassMap: 'emr-icon-output',
             bytes: outputItem.bytes,
             subs
         };
@@ -515,7 +527,8 @@ const getGridData = () => {
         name: 'Name',
         width: 500,
         maxWidth: 1230,
-        classMap: 'emr-column-name'
+        classMap: 'emr-column-name emr-v-border',
+        headerClassMap: 'emr-v-border'
     }, {
         id: 'percent',
         name: '%',
@@ -989,14 +1002,6 @@ icon
     }
 }
 
-.emr-column-name {
-    cursor: pointer;
-}
-
-.emr-column-name:hover {
-    text-decoration: underline;
-}
-
 .emr-percent-chart {
     position: relative;
     display: inline-block;
@@ -1019,7 +1024,41 @@ icon
     background-color: #999;
 }
 
+.emr-column-name {
+    cursor: pointer;
+}
+
+.emr-column-name:hover {
+    text-decoration: underline;
+}
+
+.emr-icon-entry,
+.emr-icon-output {
+    .tg-tree-name {
+        padding-left: 20px;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 16px 16px;
+    }
+}
+
+.emr-icon-entry {
+    .tg-tree-name {
+        background-image: url("./images/entry-point.svg");
+    }
+}
+
+.emr-icon-output {
+    .tg-tree-name {
+        background-image: url("./images/package.svg");
+    }
+}
+
 .tg-turbogrid {
+    .emr-v-border {
+        border-right: 1px solid #ccc;
+    }
+
     .tg-group {
         .emr-column-name {
             text-decoration: none;
